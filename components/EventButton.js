@@ -7,7 +7,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const EventButton = (props) => {
 
-    function iconType (iconFont, iconName) {
+    const iconType  = (iconFont, iconName) => {
         switch (iconFont) {
             case 'FontAwesome':
                 return(

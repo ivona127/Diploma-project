@@ -1,15 +1,16 @@
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LottieView from 'lottie-react-native';
-import EmergencyEventsMenu from "./EmergencyEventsMenu";
-
+import EmergencyEventsMenu from './EmergencyEventsMenu';
+import CurrentTime from './CurrentTime';
+import CurrentLocation from './CurrentLocation'; 
 
 const EmergencyButton = () => {
-    const [isModelVisible, setisModelVisible] = useState(false);
+    const [isModelVisible, setisModelVisible] = useState(false);    
 
-    function changeVisibility(){
+    const changeVisibility = () => {
         setisModelVisible(!isModelVisible);
-    }
+    }    
 
     return(
         <View style={styles.container}>
@@ -17,6 +18,8 @@ const EmergencyButton = () => {
                 visible={isModelVisible}
                 animationType='fade'
             >
+                <CurrentTime/>
+                <CurrentLocation/>
                 <EmergencyEventsMenu />
             </Modal>
            
