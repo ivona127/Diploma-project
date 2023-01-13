@@ -6,7 +6,7 @@ import MaterialCommunityIconsfrom from 'react-native-vector-icons/MaterialCommun
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const EventButton = (props) => {
-
+    
     const iconType  = (iconFont, iconName) => {
         switch (iconFont) {
             case 'FontAwesome':
@@ -31,16 +31,21 @@ const EventButton = (props) => {
         
         }
     }
+    
+    const handleButtonPress = () => {
+        props.onPress(); // Call the callback function passed as a prop
+    }
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={() => console.log('Pressed')}>
+            <TouchableOpacity style={styles.button} onPress={() => handleButtonPress()}>
                 
                 <View style={styles.icon_container}>
                 
                     <LottieView 
                         style={styles.lottie}
-                        source={require('../assets/lottie/circle-red-button.json')}
+                        source={require('../../../assets/lottie/circle-red-button.json')}
+
                         autoPlay={false}
                     />
                 

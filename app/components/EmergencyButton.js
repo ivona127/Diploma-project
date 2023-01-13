@@ -1,32 +1,20 @@
-import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
-import { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import LottieView from 'lottie-react-native';
-import EmergencyEventsMenu from './EmergencyEventsMenu';
-import CurrentTime from './CurrentTime';
-import CurrentLocation from './CurrentLocation'; 
+import { useNavigation } from '@react-navigation/native';
 
 const EmergencyButton = () => {
-    const [isModelVisible, setisModelVisible] = useState(false);    
+    const navigation = useNavigation();
 
-    const changeVisibility = () => {
-        setisModelVisible(!isModelVisible);
-    }    
+    const handleButtonPress = () => {
+        navigation.navigate('Menu');
+    }
 
     return(
         <View style={styles.container}>
-           <Modal 
-                visible={isModelVisible}
-                animationType='fade'
-            >
-                <CurrentTime/>
-                <CurrentLocation/>
-                <EmergencyEventsMenu />
-            </Modal>
-           
-           <TouchableOpacity style={styles.button} onPress= {() => changeVisibility()}> 
+           <TouchableOpacity style={styles.button} onPress= {() => handleButtonPress()}> 
                
                 <LottieView style={styles.lottie}
-                    source={require('../assets/lottie/circle-red-button.json')}
+                    source={require('../../assets/lottie/circle-red-button.json')}
                     speed={0.5}
                     autoPlay
                 />

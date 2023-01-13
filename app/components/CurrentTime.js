@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-const CurrentTime = () => {
+const CurrentTime = (props) => {
     const [time, setTime] = useState(null);
-    const [refresh, setRefresh] = useState(false);
+    const [refresh, setRefresh] = useState();
 
     const getTime = () => {
-        setTime(new Date().toString());
+        setTime(new Date().toLocaleTimeString());
         setRefresh(true);
     };
 
@@ -13,6 +13,8 @@ const CurrentTime = () => {
         getTime();
         console.log(time);
     }, [refresh]);
-}
+
+    return time ;
+};
 
 export default CurrentTime;
