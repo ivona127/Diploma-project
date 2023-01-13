@@ -1,7 +1,7 @@
-import EmergencyButton from './components/EmergencyButton';
+import StackNavigator from "./app/navigation/StackNavigator";
 
 export default function App() {
   return (
-    <EmergencyButton />
+    <StackNavigator />
   );
 }
