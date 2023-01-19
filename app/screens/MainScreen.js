@@ -1,36 +1,15 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import {hospitals} from '../data/Hospitals'
 // import { Linking } from 'react-native';
 
 const MainScreen = () =>{
-    const listHospitals = [
-        {
-            id: 1,
-            name: 'МБАЛ "Света Анна',
-            latitude: '42.66031653668624',
-            longitude: '23.372026668408687'
-        },
 
-        {
-            id: 2,
-            name: 'МБАЛ "Царица Йоанна" (ИСУЛ)',
-            latitude: '42.70075393951716',
-            longitude: '23.3395660893195'
-        },
-
-        {
-            id: 3,
-            name: 'МБАЛСМ "Николай И. Пирогов',
-            latitude: '42.69032852744321',
-            longitude: '23.307414368409702'
-        }
-    ]
-
-    const navigateToEndPoint = (latitude, longitude) => {
-      const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
-      console.log(latitude, longitude)
-      // Linking.openURL(url);
+  const navigateToEndPoint = (latitude, longitude) => {
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
+    console.log(latitude, longitude)
+    // Linking.openURL(url);
   };
 
     const Item = ({item}) => ( 
@@ -60,7 +39,7 @@ const MainScreen = () =>{
     return (
         <View>
             <FlatList
-                data={listHospitals}
+                data={hospitals}
                 renderItem={({item}) => <Item item={item} />}
                 keyExtractor={item => item.id}
            />
