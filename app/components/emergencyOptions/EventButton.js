@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     
     text:{
         fontSize: 15,
-        color: 'black',
+        color: COLORS.black,
         fontWeight: 'bold',
         fontFamily: 'Roboto',
         textAlign:'center'    

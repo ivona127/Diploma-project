@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import LottieView from 'lottie-react-native';
 import { useNavigation } from '@react-navigation/native';
+import { COLORS } from '../const/colors';
 
 const EmergencyButton = () => {
     const navigation = useNavigation();
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
         flex:1,  
         alignItems: 'center',
         justifyContent: 'center', 
-        backgroundColor:'#f2f2f2'
+        backgroundColor: COLORS.grey
     },
 
     button: {
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
 
     text:{
         fontSize: 40,
-        color: '#FFFFFF',
+        color: COLORS.white,
         fontWeight: 'bold',
         fontFamily: 'Roboto'
     },

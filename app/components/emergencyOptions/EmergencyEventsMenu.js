@@ -46,7 +46,7 @@ const EmergencyEventsMenu = () => {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:COLORS.white,
+        backgroundColor:COLORS.grey,
         flex:1,
         justifyContent:'center',
         alignItems:'center'

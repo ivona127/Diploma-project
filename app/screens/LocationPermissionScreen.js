@@ -1,16 +1,34 @@
 import {useState} from 'react';
-import {View, Text, Switch, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, Switch, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import { COLORS } from '../const/colors';
 import { useNavigation } from '@react-navigation/native';
+import * as Location from 'expo-location';
+
 
 const LocationAndSMSPermissionScreen = () => {
-    const [smsPermission, setSmsPermission] = useState(false);
     const [locationPermission, setLocationPermission] = useState(false);
+    const [canContinue, setCanContinue] = useState(false);
     const navigation = useNavigation();
 
     const handleButtonPress = () => {
-        navigation.navigate('Tab');
+        if(canContinue){
+            navigation.navigate('Tab');
+        } else{
+            Alert.alert('Изисква се разрешение, за да продължите');
+        }
     }
+
+    const requestLocationPermission = async () => {
+        let {status} = await Location.requestForegroundPermissionsAsync();
+        
+        if (status === 'granted') {
+            Alert.alert('Успешно е разрешено използването на вашето местоположение');
+            setCanContinue(true);
+        } else {
+            Alert.alert('Не разрешихте използването на местополежието ви')
+        }
+    
+    };
 
     return(
         <View style={styles.container}>
@@ -20,21 +38,19 @@ const LocationAndSMSPermissionScreen = () => {
                     и да изпраща SMS съобщения от ваше име:</Text>
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}>Разрешете да се използване вашето местоположение:</Text>
+                <Text style={styles.text}>Разрешете да се използва вашето местоположение:</Text>
                 <Switch
                     thumbColor='white'
                     trackColor={{ true: COLORS.red }}
                     value={locationPermission} 
-                    onValueChange={(value) => setLocationPermission(value)}
-                />
-            </View>
-
-            <View style={styles.card}>
-                <Text style={styles.text}>Разрешете да се изпраща SMS при нужда:</Text>
-                <Switch 
-                    thumbColor='white'
-                    trackColor={{ true: COLORS.red }}
-                    value={smsPermission} onValueChange={(value) => setSmsPermission(value)}
+                    onValueChange={(value) => {
+                        setLocationPermission(value);
+                        if (value) {
+                        requestLocationPermission();
+                        } else{
+                            setCanContinue(false)
+                        }
+                    }}
                 />
             </View>
 
