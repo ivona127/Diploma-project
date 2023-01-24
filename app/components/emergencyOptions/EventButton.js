@@ -4,6 +4,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIconsfrom from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {COLORS} from '../../const/colors';
 
 const EventButton = (props) => {
     
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
         height:150,
         alignItems: 'center',        
         borderRadius:10,
-        backgroundColor:'white',
+        backgroundColor:COLORS.white,
         elevation:10,    
     },
 
