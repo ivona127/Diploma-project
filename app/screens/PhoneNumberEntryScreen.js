@@ -19,7 +19,7 @@ const PhoneNumberEntryScreen = ({route}) =>{
     }
 
     const handleButtonPress = () => {
-        navigation.navigate('LocationAndSMSPermissionScreen');
+        navigation.navigate('LocationPermissionScreen');
     }
 
     const saveNumbers = async() => {

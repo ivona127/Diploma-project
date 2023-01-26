@@ -13,6 +13,7 @@
     "@react-native-picker/picker": "^2.4.8",
     "@react-navigation/bottom-tabs": "^6.5.3",
     "@react-navigation/stack": "^6.3.11",
+    "@reduxjs/toolkit": "^1.9.1",
     "expo": "~47.0.9",
     "expo-location": "~15.0.1",
     "expo-sms": "~11.0.0",
@@ -24,7 +25,9 @@
     "react-native-phone-call": "^1.2.0",
     "react-native-phone-number-input": "^2.1.0",
     "react-native-splash-screen": "^3.3.0",
-    "react-native-vector-icons": "^9.2.0"
+    "react-native-vector-icons": "^9.2.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

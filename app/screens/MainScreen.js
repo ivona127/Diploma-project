@@ -2,8 +2,8 @@ import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {hospitals} from '../data/Hospitals'
-import { Linking } from 'react-native';
 import call from 'react-native-phone-call';
+import { COLORS } from '../const/colors';
 
 const MainScreen = () =>{
 
@@ -53,7 +53,7 @@ const MainScreen = () =>{
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={hospitals}
         renderItem={({item}) => <Item item={item} />}
@@ -64,9 +64,13 @@ const MainScreen = () =>{
 };
 
 const styles = StyleSheet.create({
+  container:{
+    backgroundColor:COLORS.grey
+  },
+
   item: {
     borderRadius:10,
-    backgroundColor:'white',
+    backgroundColor: COLORS.white,
     elevation:10,    
     padding: 20,
     marginVertical: 8,
@@ -81,14 +85,14 @@ const styles = StyleSheet.create({
     width:50,
     height:50,
     borderRadius:30,
-    backgroundColor: '#00cc44',
+    backgroundColor: COLORS.red,
     margin:10,
     justifyContent: 'center',
     alignItems: 'center'
   },
 
   icon:{
-    color:"white"
+    color: COLORS.white
   } 
 });
   

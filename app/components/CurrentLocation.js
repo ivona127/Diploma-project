@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as Location from 'expo-location';
 
-const CurrentLocation = () =>{
+const CurrentLocation = () => {
     const [longitude, setLongitude] = useState(null);
     const [latitude, setLatitude] = useState(null);
     const [refresh, setRefresh] = useState(false);

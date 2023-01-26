@@ -6,14 +6,24 @@ import LocationPermissionScreen from '../screens/LocationPermissionScreen';
 import EmergencyOptionsScreen from '../screens/EmergencyOptionsScreen';
 import MainScreen from '../screens/MainScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import {useSelector} from 'react-redux';
+import { useEffect } from 'react';
 
 const {Navigator, Screen} = createStackNavigator();
 
 const StackNavigator = () => {
+    const hasCompletedInitialScreens = useSelector(state => state.hasCompletedInitialScreens)
+
+    // useEffect(() => {
+    //     if(hasCompletedInitialScreens){
+    //         navigation.navigate('Tab')
+    //     }
+    // }, [hasCompletedInitialScreens, navigation])
+
     return(
         <NavigationContainer>
             <Navigator 
-                initialRouteName='LocationPermissionScreen'  
+                initialRouteName={hasCompletedInitialScreens ? 'Tab' : 'NumberOfPhoneNumbersScreen'}  
                 screenOptions={{headerShown: true}}
             >
                 <Screen name='NumberOfPhoneNumbersScreen' component={NumberOfPhoneNumbersScreen}/>
@@ -26,6 +36,5 @@ const StackNavigator = () => {
         </NavigationContainer>
     );
 };
-
 
 export default StackNavigator;

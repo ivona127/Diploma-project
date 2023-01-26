@@ -22,7 +22,6 @@ const LocationAndSMSPermissionScreen = () => {
         let {status} = await Location.requestForegroundPermissionsAsync();
         
         if (status === 'granted') {
-            Alert.alert('Успешно е разрешено използването на вашето местоположение');
             setCanContinue(true);
         } else {
             Alert.alert('Не разрешихте използването на местополежието ви')

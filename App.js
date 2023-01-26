@@ -1,10 +1,12 @@
-// import StackNavigator from "./app/navigation/StackNavigator";
-// import PhoneNumberEntryScreen from '../Diploma-project/app/screens/PhoneNumberEntryScreen';
-
 import StackNavigator from "./app/navigation/StackNavigator";
+import { Provider } from "react-redux";
+import store from './app/redux/Store'
 
 export default function App() {
+
   return (
-    <StackNavigator />
+    <Provider store={store}>
+      <StackNavigator />
+    </Provider>
   );
 }
