@@ -43,8 +43,6 @@ const EmergencyEventsMenu = () => {
                 < EventButton iconName='head-remove-outline' iconFont='MaterialCommunityIconsfrom' buttonText='Загуба на съзнание' onPress={handleButtonPress}/>
                 < EventButton iconName='glass-whiskey' iconFont='FontAwesome5' buttonText='Натравяне' onPress={handleButtonPress}/>
             </View>
-            {/* {isButtonClicked==false && stopWatch==true} */}
-
             {isButtonClicked==false && stopWatch==true && <SendSMS time={time} longitude={longitude} latitude={latitude}/>}
         </View>
     );
