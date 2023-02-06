@@ -11,7 +11,7 @@ const EmergencyButton = () => {
     }
 
     return(
-        <View style={styles.container}>
+        <View>
            <TouchableOpacity style={styles.button} onPress= {() => handleButtonPress()}> 
                
                 <LottieView style={styles.lottie}

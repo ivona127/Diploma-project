@@ -10,7 +10,7 @@ const StopWatch = () => {
             console.log(seconds);
         }, 1000);
         
-        if(seconds == 20) {
+        if(seconds == 10) {
            setEnd(true);
         } else if (seconds > 20){
            clearInterval(interval); 

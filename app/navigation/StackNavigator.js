@@ -23,8 +23,9 @@ const StackNavigator = () => {
     return(
         <NavigationContainer>
             <Navigator 
-                initialRouteName={hasCompletedInitialScreens ? 'Tab' : 'NumberOfPhoneNumbersScreen'}  
-                screenOptions={{headerShown: true}}
+                // initialRouteName={hasCompletedInitialScreens ? 'Tab' : 'NumberOfPhoneNumbersScreen'}  
+                initialRouteName='Tab' 
+                screenOptions={{headerShown: false}}
             >
                 <Screen name='NumberOfPhoneNumbersScreen' component={NumberOfPhoneNumbersScreen}/>
                 <Screen name='PhoneNumberEntryScreen' component={PhoneNumberEntryScreen}/>
