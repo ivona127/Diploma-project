@@ -16,9 +16,9 @@ const EmergencyEventsMenu = () => {
 
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
-    const handleButtonPress = () => {
+    const handleButtonPress = (caseNum) => {
         setIsButtonClicked(true);
-        navigation.navigate('Main');
+        navigation.navigate('Main', {caseNum: caseNum});
     };
 
     return(
@@ -30,18 +30,18 @@ const EmergencyEventsMenu = () => {
             </View>
 
             <View style={styles.row}>
-                < EventButton iconName='heartbeat' iconFont='FontAwesome' buttonText='Сърдечни заболявания' onPress={handleButtonPress}/>
-                < EventButton iconName='user-injured' iconFont='FontAwesome5' buttonText='Нараняване' onPress={handleButtonPress} />
+                < EventButton iconName='heartbeat' iconFont='FontAwesome' buttonText='Сърдечни заболявания' onPress={() => handleButtonPress(1)}/>
+                < EventButton iconName='user-injured' iconFont='FontAwesome5' buttonText='Нараняване' onPress={() => handleButtonPress(2)} />
             </View>
 
             <View style={styles.row}>
-                < EventButton iconName='human-pregnant' iconFont='MaterialCommunityIconsfrom' buttonText='Раждане' onPress={handleButtonPress} />
-                < EventButton iconName='child-care' iconFont='MaterialIcons' buttonText='Детско заболяване' onPress={handleButtonPress}/>
+                < EventButton iconName='human-pregnant' iconFont='MaterialCommunityIconsfrom' buttonText='Раждане' onPress={() => handleButtonPress(3)} />
+                < EventButton iconName='child-care' iconFont='MaterialIcons' buttonText='Детско заболяване' onPress={() => handleButtonPress(4)}/>
             </View>
 
             <View style={styles.row}>
-                < EventButton iconName='head-remove-outline' iconFont='MaterialCommunityIconsfrom' buttonText='Загуба на съзнание' onPress={handleButtonPress}/>
-                < EventButton iconName='glass-whiskey' iconFont='FontAwesome5' buttonText='Натравяне' onPress={handleButtonPress}/>
+                < EventButton iconName='head-remove-outline' iconFont='MaterialCommunityIconsfrom' buttonText='Загуба на съзнание' onPress={() => handleButtonPress(5)}/>
+                < EventButton iconName='glass-whiskey' iconFont='FontAwesome5' buttonText='Натравяне' onPress={() => handleButtonPress(6)}/>
             </View>
             {isButtonClicked==false && stopWatch==true && <SendSMS time={time} longitude={longitude} latitude={latitude}/>}
         </View>

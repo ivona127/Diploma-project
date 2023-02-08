@@ -2,10 +2,12 @@ import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {hospitals} from '../data/Hospitals'
-import call from 'react-native-phone-call';
+import PhoneCall from 'react-native-phone-call';
 import { COLORS } from '../const/colors';
 
-const MainScreen = () =>{
+const MainScreen  = ({route}) =>{
+  const caseNum = route.params.caseNum;
+  const filteredHospitals = hospitals.filter(hospital => hospital.cases.includes(caseNum));
 
   const navigateToEndPoint = (latitude, longitude) => {
     const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
@@ -13,17 +15,13 @@ const MainScreen = () =>{
     // Linking.openURL(url);
   };
 
-  const args = {
-    number: '0886441624', // String value with the number to call
-    prompt: false, // Optional boolean property. Determines if the user should be prompted prior to the call 
-    // skipCanOpen: true // Skip the canOpenURL check
-  }
-  
-  const makeCall = () => {
-    call(args).catch(console.error)
-    // const phoneNumber = 'tel:0886441624';
-    // Linking.openURL(phoneNumber).catch(err => console.log('Error:', err));
-  }
+  const makeCall = (item) => {
+    const args = {
+        number: item.tel,
+        prompt: false,
+    };
+    PhoneCall(args).catch(console.error);
+  };
 
   const Item = ({item}) => ( 
     <View style={styles.item}>
@@ -31,7 +29,7 @@ const MainScreen = () =>{
       <View style={{flexDirection:'row', marginTop:5, justifyContent:'space-evenly'}}>
         <TouchableOpacity 
           style={styles.button}
-          onPress={() => makeCall()}
+          onPress={() => makeCall(item)}
         >
           <Feather name="phone-call" size={25} style={styles.icon}/>
           </TouchableOpacity>
@@ -55,7 +53,7 @@ const MainScreen = () =>{
   return (
     <View style={styles.container}>
       <FlatList
-        data={hospitals}
+        data={filteredHospitals}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}
       />
