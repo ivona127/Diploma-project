@@ -5,9 +5,9 @@ import PhoneNumberEntryScreen from '../screens/PhoneNumberEntryScreen';
 import LocationPermissionScreen from '../screens/LocationPermissionScreen';
 import EmergencyOptionsScreen from '../screens/EmergencyOptionsScreen';
 import MainScreen from '../screens/MainScreen';
+import FirstAid from '../screens/FirstAidScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import {useSelector} from 'react-redux';
-import { useEffect } from 'react';
 
 const {Navigator, Screen} = createStackNavigator();
 
@@ -33,6 +33,7 @@ const StackNavigator = () => {
                 <Screen name='Tab' component={BottomTabNavigator}/>
                 <Screen name='Menu' component={EmergencyOptionsScreen}/>
                 <Screen name='Main' component={MainScreen}/>
+                <Screen name='FirstAid' component={FirstAid}/>
             </Navigator>
         </NavigationContainer>
     );

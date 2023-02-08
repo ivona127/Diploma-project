@@ -1,27 +1,24 @@
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {hospitals} from '../data/Hospitals'
-import PhoneCall from 'react-native-phone-call';
 import { COLORS } from '../const/colors';
+import makeCall from '../components/PhoneCall';
+import { useNavigation } from '@react-navigation/native';
 
 const MainScreen  = ({route}) =>{
+  const navigation = useNavigation();
   const caseNum = route.params.caseNum;
   const filteredHospitals = hospitals.filter(hospital => hospital.cases.includes(caseNum));
 
   const navigateToEndPoint = (latitude, longitude) => {
     const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
-    console.log(latitude, longitude)
-    // Linking.openURL(url);
+    Linking.openURL(url);
   };
 
-  const makeCall = (item) => {
-    const args = {
-        number: item.tel,
-        prompt: false,
-    };
-    PhoneCall(args).catch(console.error);
-  };
+  const handleButtonPress = () => {
+    navigation.navigate('FirstAid');
+  }
 
   const Item = ({item}) => ( 
     <View style={styles.item}>
@@ -29,7 +26,7 @@ const MainScreen  = ({route}) =>{
       <View style={{flexDirection:'row', marginTop:5, justifyContent:'space-evenly'}}>
         <TouchableOpacity 
           style={styles.button}
-          onPress={() => makeCall(item)}
+          onPress={() => makeCall(item.tel)}
         >
           <Feather name="phone-call" size={25} style={styles.icon}/>
           </TouchableOpacity>
@@ -41,7 +38,10 @@ const MainScreen  = ({route}) =>{
             <Feather name="navigation" size={25} style={styles.icon}/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity 
+            style={styles.button}
+            onPress={() => handleButtonPress()}
+          >
             <Fontisto name="first-aid-alt" size={23} style={styles.icon}/>
           </TouchableOpacity>
           

@@ -2,18 +2,9 @@ import { Text, View, TouchableOpacity, StyleSheet} from "react-native";
 import EmergencyButton from "../components/EmergencyButton"
 import {COLORS} from '../const/colors'
 import Feather from 'react-native-vector-icons/Feather';
-import PhoneCall from 'react-native-phone-call';
+import makeCall from '../components/PhoneCall';
 
 const HomeScreen = () => {
-
-    const makeCall = (phoneNumber) => {
-        const args = {
-            number: phoneNumber,
-            prompt: false,
-        };
-        PhoneCall(args).catch(console.error);
-    };
-
     return(
         <View style={styles.container}>
             <View style={styles.text_container}>
