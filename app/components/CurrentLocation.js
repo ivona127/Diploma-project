@@ -15,12 +15,9 @@ const CurrentLocation = () => {
 
     useEffect(() => {
         getLocation();
-        // console.log(latitude);
-        // console.log(longitude);
     }, [refresh]);
 
     return { longitude, latitude };
 }
 
 export default CurrentLocation;
-

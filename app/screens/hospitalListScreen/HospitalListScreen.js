@@ -1,12 +1,12 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import {hospitals} from '../data/Hospitals'
-import { COLORS } from '../const/colors';
-import makeCall from '../components/PhoneCall';
+import {hospitals} from '../../data/Hospitals'
+import colors from '../../theme/Colors';
+import makeCall from '../../components/PhoneCall';
 import { useNavigation } from '@react-navigation/native';
 
-const MainScreen  = ({route}) =>{
+const HospitalListScreen  = ({route}) =>{
   const navigation = useNavigation();
   const caseNum = route.params.caseNum;
   const filteredHospitals = hospitals.filter(hospital => hospital.cases.includes(caseNum));
@@ -17,13 +17,13 @@ const MainScreen  = ({route}) =>{
   };
 
   const handleButtonPress = () => {
-    navigation.navigate('FirstAid');
+    navigation.navigate('LossOfConsciousness');
   }
 
   const Item = ({item}) => ( 
     <View style={styles.item}>
       <Text style={styles.name}>{item.name}</Text>
-      <View style={{flexDirection:'row', marginTop:5, justifyContent:'space-evenly'}}>
+      <View style={{flexDirection:'row', marginTop:5, justifyContent:'space-around'}}>
         <TouchableOpacity 
           style={styles.button}
           onPress={() => makeCall(item.tel)}
@@ -37,14 +37,6 @@ const MainScreen  = ({route}) =>{
           >
             <Feather name="navigation" size={25} style={styles.icon}/>
           </TouchableOpacity>
-
-          <TouchableOpacity 
-            style={styles.button}
-            onPress={() => handleButtonPress()}
-          >
-            <Fontisto name="first-aid-alt" size={23} style={styles.icon}/>
-          </TouchableOpacity>
-          
         </View>
           
       </View>
@@ -57,18 +49,28 @@ const MainScreen  = ({route}) =>{
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}
       />
+
+        <TouchableOpacity 
+            // style={styles}
+            onPress={() => handleButtonPress()}
+          >
+            <Text>Бърза помощ</Text>
+            {/* <Fontisto name="first-aid-alt" size={23} style={styles.icon}/> */}
+          </TouchableOpacity>
+          
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:COLORS.grey
+    backgroundColor:colors.background,
+    flex:1
   },
 
   item: {
     borderRadius:10,
-    backgroundColor: COLORS.white,
+    backgroundColor: colors.white,
     elevation:10,    
     padding: 20,
     marginVertical: 8,
@@ -83,16 +85,29 @@ const styles = StyleSheet.create({
     width:50,
     height:50,
     borderRadius:30,
-    backgroundColor: COLORS.red,
+    backgroundColor: colors.primary,
     margin:10,
     justifyContent: 'center',
     alignItems: 'center'
   },
 
+  floatingButton:{
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    width: 50,
+    height: 200,
+    borderRadius: 30,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 10
+  },
+
   icon:{
-    color: COLORS.white
+    color: colors.white
   } 
 });
   
 
-export default MainScreen;
+export default HospitalListScreen;

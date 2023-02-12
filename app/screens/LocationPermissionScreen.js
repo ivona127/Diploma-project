@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {View, Text, Switch, StyleSheet, TouchableOpacity, Alert} from 'react-native';
-import { COLORS } from '../const/colors';
+import colors from '../theme/Colors';
 import { useNavigation } from '@react-navigation/native';
 import * as Location from 'expo-location';
 
@@ -40,7 +40,7 @@ const LocationAndSMSPermissionScreen = () => {
                 <Text style={styles.text}>Разрешете да се използва вашето местоположение:</Text>
                 <Switch
                     thumbColor='white'
-                    trackColor={{ true: COLORS.red }}
+                    trackColor={{ true: colors.primary }}
                     value={locationPermission} 
                     onValueChange={(value) => {
                         setLocationPermission(value);
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: COLORS.grey
+        backgroundColor: colors.background
     },
 
     input_container:{
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         // marginBottom:40,
         // marginTop:10,
         elevation:2,
-        backgroundColor: COLORS.grey
+        backgroundColor: colors.background
     }, 
 
     card:{
@@ -86,13 +86,13 @@ const styles = StyleSheet.create({
         height: 'auto',
         width: '85%',
         borderRadius:20,
-        backgroundColor: COLORS.white,
+        backgroundColor: colors.white,
         // alignItems: 'center',
         elevation:10   
     },
 
     title:{
-        color: COLORS.black,
+        color: colors.text,
         fontSize:17,
         fontFamily: 'Roboto',
         // fontWeight: 'bold',
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     },
 
     text:{
-        color: COLORS.red,
+        color: colors.primary,
         fontFamily:'Roboto',
         fontWeight: 'bold',
         fontSize:15,
@@ -120,11 +120,11 @@ const styles = StyleSheet.create({
         elevation: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:COLORS.red,
+        backgroundColor:colors.primary,
     },
 
     button_text:{
-        color: COLORS.white,
+        color: colors.white,
         fontWeight:'bold',
         fontFamily: 'Roboto',
         fontSize: 25,

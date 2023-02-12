@@ -11,7 +11,6 @@ const CurrentTime = (props) => {
 
     useEffect(() => {
         getTime();
-        // console.log(time);
     }, [refresh]);
 
     return time ;
