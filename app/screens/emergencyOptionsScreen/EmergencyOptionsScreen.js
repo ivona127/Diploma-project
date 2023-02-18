@@ -2,11 +2,11 @@ import {useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import CurrentLocation from '../../components/CurrentLocation';
-import CurrentTime from '../../components/CurrentTime';
+import CurrentLocation from '../../utils/CurrentLocation';
+import CurrentTime from '../../utils/CurrentTime';
 import HealthIssueButton from '../../components/healthIssueButton/HealthIssueButton';
-import SendSMS from '../../components/SendSMS';
-import StopWatch from '../../components/StopWatch';
+import SendSMS from '../../utils/SendSMS';
+import Stopwatch from '../../utils/Stopwatch';
 
 import styles from './EmergencyOptionsScreenStyles';
 
@@ -15,8 +15,8 @@ const EmergencyOptionsScreen = () => {
 
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
-    const {longitude, latitude} = CurrentLocation();
-    const stopWatch = StopWatch();
+    const {latitude, longitude} = CurrentLocation();
+    const stopwatch = Stopwatch();
     const time = CurrentTime();
 
     const handleButtonPress = (caseNum) => {
@@ -27,7 +27,7 @@ const EmergencyOptionsScreen = () => {
     return(
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainerStyle}>
             <View style={styles.textContainer}>
-                <Text style={styles.text}>
+                <Text style={styles.primaryText}>
                     Изберете вида на спешния случай
                 </Text>
 
@@ -110,7 +110,7 @@ const EmergencyOptionsScreen = () => {
                 />
             </View>
             
-            {isButtonClicked==false && stopWatch==true && <SendSMS time={time} longitude={longitude} latitude={latitude}/>} 
+            {isButtonClicked==false && stopwatch==true && <SendSMS time={time} latitude={latitude} longitude={longitude}/>} 
         </ScrollView>
     );
 }

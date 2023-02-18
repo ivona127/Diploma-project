@@ -9,12 +9,17 @@ const styles = StyleSheet.create({
         backgroundColor: colors.background,
         flex: 1,
         width: metrics.width,
-        height: metrics.height,
+        height: metrics.height
     }, 
 
     textContainer:{
         alignItems:'center',
         top: metrics.height / 9,    
+    },
+
+    mobilePhonesList:{
+        alignItems:'center',
+        top: metrics.height / 6
     },
 
     mobilePhoneContainer:{
@@ -26,7 +31,6 @@ const styles = StyleSheet.create({
         width: metrics.width / 1.1,
         elevation:10,
         marginBottom:20,
-        top: metrics.height / 6
     },
 
     text:{
@@ -43,6 +47,13 @@ const styles = StyleSheet.create({
         fontWeight: fonts.weight.normal,
         marginTop:5,
         width: metrics.width / 1.1
+    },
+
+    mobilePhoneText:{
+        color: colors.text,
+        fontFamily:fonts.type.roboto,
+        fontSize: fonts.size.font15,
+        fontWeight: fonts.weight.bold,
     }
 });
 

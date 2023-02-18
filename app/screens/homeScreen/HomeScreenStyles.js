@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.background,
         flex: 1,
-        width: metrics.width,
-        height: metrics.height
+        height: metrics.height,
+        width: metrics.width
     }, 
 
     redButtonContainer :{

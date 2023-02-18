@@ -1,4 +1,4 @@
-import { Text, View} from "react-native";
+import {Text, View} from 'react-native';
 
 import EmergencyPhoneButton from '../../components/emergencyPhoneButton/EmergencyPhoneButton';
 import SOSButton from "../../components/SOSButton/SOSButton";
@@ -12,6 +12,7 @@ const HomeScreen = () => {
                 <Text style={styles.primaryText}>
                     Телефонни номера при необходимост
                 </Text>
+                
                 <Text style={styles.secondaryText}>
                     Свържете се директно
                 </Text>
@@ -28,8 +29,9 @@ const HomeScreen = () => {
             
             <View style={styles.bottomTextContainer}>
                 <Text style={styles.primaryText}>
-                    Нуждаете се от спешна помощ?
+                    Нуждаете се от медицинска помощ?
                 </Text>
+                
                 <Text style={styles.secondaryText}>
                     Натиснете бутона за спешност
                 </Text>

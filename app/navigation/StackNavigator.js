@@ -1,11 +1,12 @@
 import {createStackNavigator} from '@react-navigation/stack'
 import BottomTabNavigator from './bottomTabNavigator/BottomTabNavigator';
-import NumberOfPhoneNumbersScreen from '../screens/NumberOfPhoneNumbersScreen';
-import PhoneNumberEntryScreen from '../screens/PhoneNumberEntryScreen';
-import LocationPermissionScreen from '../screens/LocationPermissionScreen';
+import AmountOfPhoneNumbersScreen from '../screens/amountOfPhoneNumbersScreen/AmountOfPhoneNumbersScreen';
+import PhoneNumberEntryScreen from '../screens/phoneNumberEntryScreen/PhoneNumberEntryScreen';
+import LocationPermissionScreen from '../screens/locationPermissionScreen/LocationPermissionScreen'
 import EmergencyOptionsScreen from '../screens/emergencyOptionsScreen/EmergencyOptionsScreen';
 import HospitalListScreen from '../screens/hospitalListScreen/HospitalListScreen';
-import LossOfConsciousness from '../screens/LossOfConsciousness';
+import AllergyInstructionScreen from '../screens/firstAidScreens/allergyInstructionScreen/AllergyInstructionScreen';
+
 import { NavigationContainer } from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 
@@ -24,16 +25,16 @@ const StackNavigator = () => {
         <NavigationContainer>
             <Navigator 
                 // initialRouteName={hasCompletedInitialScreens ? 'Tab' : 'NumberOfPhoneNumbersScreen'}  
-                initialRouteName='BottomTabNavigator' 
+                initialRouteName='AllergyInstructionScreen' 
                 screenOptions={{headerShown: false}}
             >
-                {/* <Screen name='NumberOfPhoneNumbersScreen' component={NumberOfPhoneNumbersScreen}/>
-                <Screen name='PhoneNumberEntryScreen' component={PhoneNumberEntryScreen}/>*/}
+                <Screen name='AmountOfPhoneNumbersScreen' component={AmountOfPhoneNumbersScreen}/>
+                <Screen name='PhoneNumberEntryScreen' component={PhoneNumberEntryScreen}/>
                 <Screen name='LocationPermissionScreen' component={LocationPermissionScreen}/> 
                 <Screen name='BottomTabNavigator' component={BottomTabNavigator}/>
                 <Screen name='EmergencyOptionsScreen' component={EmergencyOptionsScreen}/>
                 <Screen name='HospitalListScreen' component={HospitalListScreen}/>
-                {/*<Screen name='LossOfConsciousness' component={LossOfConsciousness}/> */}
+                <Screen name='AllergyInstructionScreen' component={AllergyInstructionScreen}/>
             </Navigator>
         </NavigationContainer>
     );

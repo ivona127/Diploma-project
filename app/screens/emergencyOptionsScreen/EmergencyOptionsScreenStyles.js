@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import colors from '../../theme/Colors';
 import fonts from '../../theme/Fonts';
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         top: metrics.height / 11,
     },
 
-    text:{
+    primaryText:{
         color: colors.text,
         fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font19,

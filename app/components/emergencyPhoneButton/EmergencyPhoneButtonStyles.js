@@ -2,6 +2,8 @@ import {StyleSheet} from 'react-native';
 
 import colors from '../../theme/Colors';
 import fonts from '../../theme/Fonts';
+import metrics from '../../theme/Metrics';
+
 
 const styles = StyleSheet.create({
     emergencyPhoneButton:{
@@ -11,7 +13,7 @@ const styles = StyleSheet.create({
         elevation: 10,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        width: '40%'
+        width: metrics.width / 2.5
     },
 
     emergencyPhoneButtonText:{
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
 
     icon:{
         color: colors.primary,
-        fontSize: 25,
+        fontSize: fonts.size.font25,
         fontWeight: fonts.weight.bold
     }
 });

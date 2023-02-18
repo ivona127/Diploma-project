@@ -1,113 +1,65 @@
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, Linking } from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
-import Fontisto from 'react-native-vector-icons/Fontisto';
+import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+
 import {hospitals} from '../../data/Hospitals'
-import colors from '../../theme/Colors';
-import makeCall from '../../components/PhoneCall';
-import { useNavigation } from '@react-navigation/native';
+import HospitalDataField from '../../components/hospitalDataField/HospitalDataField';
 
-const HospitalListScreen  = ({route}) =>{
-  const navigation = useNavigation();
-  const caseNum = route.params.caseNum;
-  const filteredHospitals = hospitals.filter(hospital => hospital.cases.includes(caseNum));
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import styles from './HospitalListScreenStyles';
 
-  const navigateToEndPoint = (latitude, longitude) => {
-    const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
-    Linking.openURL(url);
-  };
+const HospitalListScreen = ({route}) =>{
+    const navigation = useNavigation();
 
-  const handleButtonPress = () => {
-    navigation.navigate('LossOfConsciousness');
-  }
+    const caseNum = route.params.caseNum;
+    const filteredHospitals = hospitals.filter(hospital => hospital.cases.includes(caseNum));
 
-  const Item = ({item}) => ( 
-    <View style={styles.item}>
-      <Text style={styles.name}>{item.name}</Text>
-      <View style={{flexDirection:'row', marginTop:5, justifyContent:'space-around'}}>
-        <TouchableOpacity 
-          style={styles.button}
-          onPress={() => makeCall(item.tel)}
-        >
-          <Feather name="phone-call" size={25} style={styles.icon}/>
-          </TouchableOpacity>
-            
-          <TouchableOpacity 
-            style={styles.button}
-            onPress={ () => navigateToEndPoint( item.latitude, item.longitude)}
-          >
-            <Feather name="navigation" size={25} style={styles.icon}/>
-          </TouchableOpacity>
+    const handleButtonPress = (screenNum) => {
+        if(screenNum){
+            navigation.navigate('AllergyInstructionScreen');
+        } 
+        else {
+            navigation.navigate('BottomTabNavigator');        
+        }
+    }
+
+    return (
+        <View style={styles.container}>
+            <TouchableOpacity style={styles.iconButton} onPress={() => handleButtonPress(screenNum=0)}>
+                <AntDesign 
+                    name='arrowleft' 
+                    style={styles.icon} 
+                />
+            </TouchableOpacity>
+
+            <View style={styles.textContainer}>
+                <Text style={styles.primaryText}>
+                    Списък на здравните заведение, отговарящи на посочения здравословен проблем
+                </Text>
+
+                <Text style={styles.secondaryText}>
+                    Предоставяне на възможност за директна навигация и позвъняване до съответното лечебно заведение
+                </Text>
+            </View>
+
+            <View style={styles.flatListContainer}>
+                <FlatList
+                    data={filteredHospitals}
+                    renderItem={({item}) => <HospitalDataField item={item} />}
+                    keyExtractor={item => item.id}
+                    contentContainerStyle={styles.contentContainerStyle}
+                />
+            </View>
+
+            <View style={styles.firstAidButtonContainer}>
+                <TouchableOpacity style={styles.firstAidButton} onPress={() => handleButtonPress(screenNum=1)}>
+                        <Text style={styles.firstAidButtonText}>
+                            инструкция за оказване на първа долекарска помощ
+                        </Text>
+                </TouchableOpacity>
+            </View>
+
         </View>
-          
-      </View>
-  );
-
-  return (
-    <View style={styles.container}>
-      <FlatList
-        data={filteredHospitals}
-        renderItem={({item}) => <Item item={item} />}
-        keyExtractor={item => item.id}
-      />
-
-        <TouchableOpacity 
-            // style={styles}
-            onPress={() => handleButtonPress()}
-          >
-            <Text>Бърза помощ</Text>
-            {/* <Fontisto name="first-aid-alt" size={23} style={styles.icon}/> */}
-          </TouchableOpacity>
-          
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container:{
-    backgroundColor:colors.background,
-    flex:1
-  },
-
-  item: {
-    borderRadius:10,
-    backgroundColor: colors.white,
-    elevation:10,    
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-
-  name: {
-    fontSize: 19,
-  },
-
-  button:{
-    width:50,
-    height:50,
-    borderRadius:30,
-    backgroundColor: colors.primary,
-    margin:10,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-
-  floatingButton:{
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    width: 50,
-    height: 200,
-    borderRadius: 30,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 10
-  },
-
-  icon:{
-    color: colors.white
-  } 
-});
-  
+    );
+}
 
 export default HospitalListScreen;

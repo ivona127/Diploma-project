@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     icon_container:{
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft:30
+        marginLeft:30,
     },
 
     button:{
@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
 
     icon:{
         color:colors.white,
-        fontSize: 25    
+        fontSize: fonts.size.font25    
     },
     
     arrow:{
         color: colors.primary,
-        fontSize: 40,
+        fontSize: fonts.size.font38,
         marginRight:20    
     }
 });

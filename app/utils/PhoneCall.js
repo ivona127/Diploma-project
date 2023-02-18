@@ -1,7 +1,6 @@
 import PhoneCall from 'react-native-phone-call';
 
 const makeCall = (phoneNumber) => {
-    
     const args = {
         number: phoneNumber,
         prompt: false,

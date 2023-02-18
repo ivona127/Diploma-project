@@ -1,7 +1,7 @@
 import { TouchableOpacity, Text } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
-import makeCall from '../PhoneCall';
+import makeCall from '../../utils/PhoneCall';
 import styles from './EmergencyPhoneButtonStyles';
 
 const EmergencyPhoneButton = ({phoneNumber}) => (
@@ -10,7 +10,7 @@ const EmergencyPhoneButton = ({phoneNumber}) => (
         onPress={() => makeCall(phoneNumber)}
     >
         <Feather 
-            name="phone-call" 
+            name='phone-call' 
             style={styles.icon} 
         />
         

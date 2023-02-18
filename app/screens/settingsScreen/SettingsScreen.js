@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet} from "react-native";
 
-import GetDefaultNumbers from '../../components/GetDefaultNumbers';
+import GetDefaultNumbers from '../../utils/GetDefaultNumbers';
 import styles from './SettingsScreenStyles';
 
 const SettingsScreen = () =>{
     const phoneNumbers = new GetDefaultNumbers();
-
+   
     return (
         <View style={styles.container}>
             <View style={styles.textContainer}>
@@ -14,15 +14,15 @@ const SettingsScreen = () =>{
                 </Text>
 
                 <Text style={styles.secondaryText}>
-                    До тези номера ще бъде изпратена информица за 
+                    До тези номера ще бъде изпратена информация за 
                     вашето местоположение и текущо време при спешен случай
                 </Text>
             </View>
 
-            <View style={{alignItems:'center'}}>
+            <View style={styles.mobilePhonesList}>
                 {phoneNumbers.map((part, index) => (
                     <View key={index} style={styles.mobilePhoneContainer}>
-                        <Text>
+                        <Text style={styles.mobilePhoneText}>
                             {part}
                         </Text>
                     </View>
