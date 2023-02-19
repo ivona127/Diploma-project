@@ -22,18 +22,10 @@ const styles = StyleSheet.create({
         top: metrics.height / 3.25
     },
 
-    swithThumbColor:{
-        color:colors.white
-    },
-
-    swithTrackColor:{
-        color: colors.primary
-    },
-
     titleContainer:{
         alignItems:'center',
-        top: metrics.height / 4,
         padding: 5,
+        top: metrics.height / 4
     },
 
     button:{
@@ -41,19 +33,19 @@ const styles = StyleSheet.create({
         backgroundColor:colors.primary,
         borderRadius:20,
         elevation: 10,
+        height: metrics.height / 12,
         justifyContent:'center',
-        width: metrics.width / 1.5,
-        height: metrics.height / 12
+        width: metrics.width / 1.5
     },
 
     card:{
         backgroundColor: colors.white,
         borderRadius:20,
         elevation:10,
-        justifyContent: 'center',
-        width: metrics.width / 1.2,
         height: metrics.height / 4,
-        padding:30    
+        justifyContent: 'center',
+        padding:30,    
+        width: metrics.width / 1.2
     },
 
     buttonText:{
@@ -68,6 +60,14 @@ const styles = StyleSheet.create({
         fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font18,    
         fontWeight: fonts.weight.bold
+    },
+
+    swithThumbColor:{
+        color:colors.white
+    },
+
+    swithTrackColor:{
+        color: colors.primary
     },
     
     title:{

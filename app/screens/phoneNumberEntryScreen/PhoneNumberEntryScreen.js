@@ -3,10 +3,10 @@ import {Alert, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import PhoneInput from 'react-native-phone-number-input';
+import IntlPhoneInput from 'react-native-intl-phone-input';
 import PhoneNumber from 'google-libphonenumber'
-import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import BackButton from '../../components/backButton/BackButton';
 import styles from './PhoneNumberEntryScreenStyle';
 
 const PhoneNumberEntryScreen = ({route}) =>{
@@ -27,7 +27,8 @@ const PhoneNumberEntryScreen = ({route}) =>{
 
     const handlePhoneInputChange = (index, value) => {
         const updatedNumbers = [...inputNumber];
-        updatedNumbers[index] = value;
+        const formattedPhoneNumber = `${value.dialCode}${value.unmaskedPhoneNumber}`;
+        updatedNumbers[index] = formattedPhoneNumber;
         setInputNumber(updatedNumbers);
     }
 
@@ -61,7 +62,7 @@ const PhoneNumberEntryScreen = ({route}) =>{
                     });
 
                     setInputNumber(savedNumbers);
-
+                    
                     await AsyncStorage.setItem('@number', JSON.stringify(inputNumber));
                 } catch (e) {
                     console.log(e);
@@ -74,12 +75,7 @@ const PhoneNumberEntryScreen = ({route}) =>{
 
     return(
         <View style={styles.container}>
-            <TouchableOpacity style={styles.iconButton} onPress={() => handleButtonPress(screenNum=0)}>
-                <AntDesign 
-                    name='arrowleft' 
-                    style={styles.icon} 
-                />
-            </TouchableOpacity>
+            <BackButton onPress={() => handleButtonPress(screenNum=0)}/>
 
             <View style={styles.textContainer}>
                 <Text style={styles.title}>
@@ -99,12 +95,13 @@ const PhoneNumberEntryScreen = ({route}) =>{
                         </Text>
                             
                         <View style={styles.inputContainer}>
-                            <PhoneInput
+                            <IntlPhoneInput
                                 defaultValue = {number}
-                                defaultCode='BG'
-                                flagButtonStyle={{display: 'none'}}
-                                placeholder= 'Въведете номер тук'
-                                onChangeFormattedText={value => handlePhoneInputChange(index, value)}
+                                defaultCountry="BG"
+                                flagStyle={{ display: 'none' }}
+                                disableCountryChange={true}
+                                placeholder="Въведете номер тук"
+                                onChangeText ={value => handlePhoneInputChange(index, value)}
                             />
                         </View>
                     </View>

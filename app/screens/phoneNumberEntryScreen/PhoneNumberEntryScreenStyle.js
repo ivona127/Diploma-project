@@ -9,18 +9,13 @@ const styles = StyleSheet.create({
         backgroundColor: colors.background,
         flex: 1,
         height: metrics.height,
-        width: metrics.width,
-        justifyContent:'center'
+        justifyContent: 'center',
+        width: metrics.width
     },
 
     buttonContainer:{
         alignItems: 'center',
-        marginTop:50
-    },
-
-    textContainer:{
-        alignItems:'center',
-        marginBottom:20
+        marginTop: 50
     },
 
     cardContainer:{
@@ -29,42 +24,47 @@ const styles = StyleSheet.create({
     },
 
     inputContainer:{
-        alignItems:'center',
-        elevation:2,
-        paddingTop:5    
+        alignItems: 'center',
+        elevation: 2,
+        paddingTop: 5    
     }, 
+
+    textContainer:{
+        alignItems: 'center',
+        marginBottom: 20
+    },
+
+    button:{
+        alignItems: 'center',
+        backgroundColor: colors.primary,
+        borderRadius: 20,
+        elevation: 10,
+        justifyContent: 'center',
+        height: metrics.height / 12,
+        width: metrics.width / 1.5
+    },
+
+    card:{
+        backgroundColor: colors.white,
+        borderRadius: 20,
+        elevation: 10,
+        justifyContent: 'center',
+        height: metrics.height / 8,
+        width: metrics.width / 1.2,
+        padding: 20    
+    },
 
     iconButton:{
         position: 'absolute',
-        top: 0,
         marginLeft: 20,
         marginTop: 50,
+        top: 0
     },
 
     icon:{
         color: colors.primary,
         fontSize: fonts.size.font25,
         fontWeight: fonts.weight.bold
-    },
-
-    card:{
-        backgroundColor: colors.white,
-        borderRadius:20,
-        elevation:10,
-        justifyContent: 'center',
-        height: metrics.height / 8,
-        width: metrics.width / 1.2,
-        padding:20    
-    },
-
-    button:{
-        alignItems: 'center',
-        backgroundColor:colors.primary,
-        borderRadius:20,
-        elevation: 10,
-        justifyContent: 'center',
-        height: metrics.height / 12,
-        width: metrics.width / 1.5
     },
 
     buttonText:{

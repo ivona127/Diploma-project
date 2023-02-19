@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 
 import {Picker} from '@react-native-picker/picker';
 import {useNavigation} from '@react-navigation/native';
@@ -23,7 +23,7 @@ const AmountOfPhoneNumbersScreen = () =>{
         <View style={styles.container}>
             <View style={styles.textContainer}>
                 <Text style={styles.title}>
-                    Въведете брои на номерата по подразбиране
+                    Въведете брой на номерата по подразбиране
                 </Text>
 
                 <Text style={styles.secondaryText}>
@@ -64,6 +64,5 @@ const AmountOfPhoneNumbersScreen = () =>{
         </View>
     );
 }
-
 
 export default AmountOfPhoneNumbersScreen;

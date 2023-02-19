@@ -7,7 +7,6 @@ const Stopwatch = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setSeconds(seconds => seconds + 1);
-            console.log(seconds);
         }, 1000);
 
         if (seconds == 20) {

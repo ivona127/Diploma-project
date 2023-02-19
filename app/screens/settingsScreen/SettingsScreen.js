@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet} from "react-native";
-
+import {Text, View} from 'react-native';
 import GetDefaultNumbers from '../../utils/GetDefaultNumbers';
+
 import styles from './SettingsScreenStyles';
 
 const SettingsScreen = () =>{

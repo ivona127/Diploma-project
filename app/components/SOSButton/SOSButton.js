@@ -28,7 +28,6 @@ const SOSButton = () => {
             <Text style={styles.text}>
                 SOS
             </Text>
-            
         </TouchableOpacity>
     );
 }

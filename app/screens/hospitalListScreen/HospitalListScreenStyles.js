@@ -8,21 +8,22 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.background,
         flex: 1,
-        width: metrics.width,
         height: metrics.height,
+        width: metrics.width
     },
 
-    iconButton:{
-        position: 'absolute',
-        top: 0,
-        marginLeft: 10,
-        marginTop: 40
+    firstAidButtonContainer:{
+        alignItems:'center',
+        bottom: 0,
+        left: 0, 
+        position: 'absolute', 
+        right: 0 
     },
 
-    icon:{
-        color: colors.primary,
-        fontSize: fonts.size.font25,
-        fontWeight: fonts.weight.bold
+    flatListContainer:{
+        alignItems:'center',
+        height: metrics.height / 1.9,
+        top: metrics.height / 9,
     },
 
     textContainer:{
@@ -30,31 +31,17 @@ const styles = StyleSheet.create({
         top: metrics.height / 12
     },
 
-    flatListContainer:{
-        alignItems:'center',
-        height: metrics.height / 1.7,
-        top: metrics.height / 9,
-    },
-
-    firstAidButtonContainer:{
-        alignItems:'center',
-        position: 'absolute', 
-        bottom: 0,
-        left: 0, 
-        right: 0, 
-    },
-
     firstAidButton:{
-        color: colors.primary, 
         backgroundColor: colors.white,
         borderColor: colors.primary,
         borderRadius: 50,
         borderWidth: 5,
+        color: colors.primary, 
         elevation:10,
         height: metrics.height / 10,
-        width: metrics.width / 1.2,
         justifyContent: 'center',
         marginBottom:15,
+        width: metrics.width / 1.2
     },
 
     firstAidButtonText:{
@@ -62,7 +49,7 @@ const styles = StyleSheet.create({
         fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font14,
         fontWeight: fonts.weight.bold,
-        textAlign: 'center',
+        textAlign: 'center'
     },
 
     primaryText:{

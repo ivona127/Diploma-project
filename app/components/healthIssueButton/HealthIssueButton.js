@@ -64,7 +64,6 @@ const HealthIssueButton = (props) => {
                     name='arrow-right' 
                     style={styles.arrow}
                 />
-
             </TouchableOpacity>        
         </View>
     );

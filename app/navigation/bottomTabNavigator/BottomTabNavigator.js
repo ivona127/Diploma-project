@@ -1,11 +1,12 @@
-import { Text, View } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {Text, View} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../../screens/homeScreen/HomeScreen';
 import SettingsScreen from '../../screens/settingsScreen/SettingsScreen';
+
 import styles from './BottomTabNavigatorStyles'
 
 const {Navigator, Screen} = createBottomTabNavigator();

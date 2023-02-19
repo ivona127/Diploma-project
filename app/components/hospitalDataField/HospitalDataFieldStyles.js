@@ -6,59 +6,60 @@ import metrics from '../../theme/Metrics';
 
 const styles = StyleSheet.create({
     container: {
-        width: metrics.width * 0.95,
-        height: metrics.height * 0.1,        
-        marginBottom:15,
-        flexDirection:'row',
-        justifyContent:'space-between',
+        alignItems: 'center',
+        alignSelf: 'flex-start',
         backgroundColor: colors.white,
-        borderRadius:10,
+        borderRadius: 10,
         elevation: 5,
-        alignItems:'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 15,
+        padding: 10,       
+        width: metrics.width * 0.95
+    },
+
+    buttonsContainer:{
+        flexDirection: 'row',
+        marginRight: 10,
+    },
+
+    iconContainer:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 5
     },
 
     textContainer:{
-        justifyContent:'center',
+        justifyContent: 'center',
         width: metrics.width * 0.5,
     },
 
-    hospitalName:{
-        fontSize: fonts.size.font15,
-        color: colors.text,
-        fontWeight: fonts.weight.bold,
-        fontFamily: fonts.type.roboto,
-        marginLeft:20
-    }, 
-
-    buttonsContainer:{
-        flexDirection:'row',
-        marginRight:10,
-    },
-
     button:{
-      borderRadius:30,
-      margin:10,
-      justifyContent: 'center',
-      alignItems: 'center'
-    },
-  
-    icon:{
-      color: colors.white,
-      fontSize: fonts.size.font25
-    }, 
-
-    icon_container:{
         alignItems: 'center',
+        borderRadius: 30,
         justifyContent: 'center',
-        padding:15
+        margin: 10
     },
 
+    icon:{
+        color: colors.white,
+        fontSize: fonts.size.font25
+    }, 
+  
     lottie:{
-        height:metrics.height * 0.08,
-        width:metrics.width * 0.15,
-        position:'absolute',
-        resizeMode:'cover'    
+        height: metrics.height * 0.08,
+        position: 'absolute',
+        resizeMode: 'cover',    
+        width: metrics.width * 0.15
     },
+
+    hospitalName:{
+        color: colors.text,
+        fontSize: fonts.size.font15,
+        fontWeight: fonts.weight.normal,
+        fontFamily: fonts.type.roboto,
+        marginLeft: 20
+    }
 });
 
 export default styles;

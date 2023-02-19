@@ -8,8 +8,13 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor: colors.background,
         flex: 1,
-        width: metrics.width,
-        height: metrics.height
+        height: metrics.height,
+        width: metrics.width
+    },
+
+    buttonsContainer:{
+        alignItems:'center',    
+        top: metrics.height / 11,
     },
 
     contentContainerStyle: {
@@ -19,11 +24,6 @@ const styles = StyleSheet.create({
     textContainer:{
         alignItems:'center',
         top: metrics.height / 16
-    },
-
-    buttonsContainer:{
-        alignItems:'center',    
-        top: metrics.height / 11,
     },
 
     primaryText:{
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font14,
         fontWeight: fonts.weight.normal,
-        marginTop:5
+        marginTop: 5    
     },
 });
 

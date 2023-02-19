@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Alert, Switch, Text, TouchableOpacity, View} from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import * as Location from 'expo-location';
 
 import styles from './LocationPermissionScreenStyles';
@@ -26,7 +26,7 @@ const LocationPermissionScreen = () => {
         if (status === 'granted') {
             setCanContinue(true);
         } else {
-            Alert.alert('Не разрешихте използването на местополежието ви')
+            Alert.alert('Не разрешихте използването на местополежието Ви')
         }
     
     };

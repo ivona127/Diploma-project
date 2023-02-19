@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity, Linking} from 'react-native';
+import {Linking, Text, TouchableOpacity, View} from 'react-native';
 
 import Feather from 'react-native-vector-icons/Feather';
 import LottieView from 'lottie-react-native';
@@ -26,7 +26,7 @@ const HospitalDataField = ({item}) => {
                     style={styles.button}
                     onPress={() => makeCall(item.tel)}
                 >
-                    <View style={styles.icon_container}>
+                    <View style={styles.iconContainer}>
                         <LottieView 
                             style={styles.lottie}
                             source={require('../../../assets/lottie/circle-red-button.json')}
@@ -36,14 +36,13 @@ const HospitalDataField = ({item}) => {
                         <Feather name="phone-call" style={styles.icon}/>
                     </View>
 
-
                 </TouchableOpacity>
                   
                 <TouchableOpacity 
                     style={styles.button}
                     onPress={ () => navigateToEndPoint(item.latitude, item.longitude)}
                 >
-                    <View style={styles.icon_container}>
+                    <View style={styles.iconContainer}>
                         <LottieView 
                             style={styles.lottie}
                             source={require('../../../assets/lottie/circle-red-button.json')}

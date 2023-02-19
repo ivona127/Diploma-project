@@ -12,4 +12,3 @@ const makeCall = (phoneNumber) => {
 };
 
 export default makeCall;
-

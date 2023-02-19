@@ -6,8 +6,8 @@ import metrics from '../../theme/Metrics';
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1, 
-        backgroundColor: colors.background
+        backgroundColor: colors.background,
+        flex: 1
     },
   
     tabBarIconContainer:{
@@ -20,26 +20,26 @@ const styles = StyleSheet.create({
   
     tabBar:{
         backgroundColor: colors.white,
-        margin: 15,
-        marginBottom: 30,
         borderRadius: 40,          
+        elevation: 10,
         height: metrics.height / 11.5,
-        elevation: 10
+        margin: 15,
+        marginBottom: 30
     },
 
     tabBarIcon: {
-        fontSize: 30,
-        color: colors.text
-      },
+        color: colors.text,
+        fontSize: 30
+    },
 
     focusedTabBarIcon: {
         color: colors.primary
     },
 
     tabBarLable: {
+        color: colors.text,
         fontFamily: fonts.type.roboto,
         fontWeight: fonts.weight.normal,
-        color: colors.text
     },
 
     focusedTabBarLable: {

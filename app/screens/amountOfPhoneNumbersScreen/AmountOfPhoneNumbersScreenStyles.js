@@ -22,11 +22,6 @@ const styles = StyleSheet.create({
         top: metrics.height / 5.5
     },
     
-    textContainer:{
-        alignItems:'center',
-        top: metrics.height / 8
-    },
-
     pickerContainer:{
         borderColor: colors.text,
         borderWidth: 0.5,
@@ -34,14 +29,19 @@ const styles = StyleSheet.create({
         marginTop: metrics.height / 15
     },
 
+    textContainer:{
+        alignItems:'center',
+        top: metrics.height / 8
+    },
+
     button:{
         alignItems: 'center',
         backgroundColor:colors.primary,
         borderRadius:20,
         elevation: 10,
+        height: metrics.height / 12,
         justifyContent:'center',
-        width: metrics.width / 1.5,
-        height: metrics.height / 12
+        width: metrics.width / 1.5
     },
 
     card:{
@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         borderRadius:20,
         elevation:10,
-        justifyContent: 'center',
-        width: metrics.width / 1.2,
         height: metrics.height / 3,
-        padding:20    
+        justifyContent: 'center',
+        padding:20,    
+        width: metrics.width / 1.2
     },
 
     picker:{ 
@@ -79,9 +79,9 @@ const styles = StyleSheet.create({
         fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font16,
         fontWeight: fonts.weight.normal,
-        width: metrics.width / 1.2, 
         marginTop: 30,
-        textAlign: 'center'
+        textAlign: 'center',
+        width: metrics.width / 1.2
     },
 
     title:{

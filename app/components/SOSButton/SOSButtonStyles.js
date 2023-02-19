@@ -7,14 +7,7 @@ import metrics from '../../theme/Metrics';
 const styles = StyleSheet.create({
     button:{
         alignItems: 'center',
-        justifyContent:'center'
-    },
-
-    text: {
-        color: colors.white,
-        fontFamily: fonts.type.roboto,
-        fontSize: fonts.size.font35,
-        fontWeight: fonts.weight.bold,
+        justifyContent: 'center'
     },
 
     lottieContainer:{
@@ -23,8 +16,15 @@ const styles = StyleSheet.create({
 
     lottie: {
         height: metrics.height / 3,
-        width: metrics.width / 1.5,
-        resizeMode: 'cover'    
+        resizeMode: 'cover',    
+        width: metrics.width / 1.5
+    },
+
+    text:{
+        color: colors.white,
+        fontFamily: fonts.type.roboto,
+        fontSize: fonts.size.font35,
+        fontWeight: fonts.weight.bold,
     }
 });
 

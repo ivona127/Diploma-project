@@ -11,7 +11,7 @@ const CurrentTime = () => {
         getTime();
     }, []);
 
-    return time ;
+    return time;
 };
 
 export default CurrentTime;

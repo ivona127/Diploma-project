@@ -8,13 +8,19 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.background,
         flex: 1,
-        width: metrics.width,
-        height: metrics.height
+        height: metrics.height,
+        width: metrics.width
     }, 
 
-    textContainer:{
-        alignItems:'center',
-        top: metrics.height / 9,    
+    mobilePhoneContainer:{
+        alignItems: 'center',
+        backgroundColor:colors.white,
+        borderRadius:10,
+        elevation:10,
+        height: metrics.height / 8,
+        justifyContent:'center',
+        marginBottom:20,        
+        width: metrics.width / 1.1
     },
 
     mobilePhonesList:{
@@ -22,15 +28,16 @@ const styles = StyleSheet.create({
         top: metrics.height / 6
     },
 
-    mobilePhoneContainer:{
-        alignItems: 'center',
-        justifyContent:'center',
-        backgroundColor:colors.white,
-        borderRadius:10,
-        height: metrics.height / 8,
-        width: metrics.width / 1.1,
-        elevation:10,
-        marginBottom:20,
+    textContainer:{
+        alignItems:'center',
+        top: metrics.height / 9,    
+    },
+
+    mobilePhoneText:{
+        color: colors.text,
+        fontFamily:fonts.type.roboto,
+        fontSize: fonts.size.font15,
+        fontWeight: fonts.weight.bold,
     },
 
     text:{
@@ -47,13 +54,6 @@ const styles = StyleSheet.create({
         fontWeight: fonts.weight.normal,
         marginTop:5,
         width: metrics.width / 1.1
-    },
-
-    mobilePhoneText:{
-        color: colors.text,
-        fontFamily:fonts.type.roboto,
-        fontSize: fonts.size.font15,
-        fontWeight: fonts.weight.bold,
     }
 });
 

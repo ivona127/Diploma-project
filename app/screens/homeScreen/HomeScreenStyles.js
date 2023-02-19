@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
         flex: 1,
         height: metrics.height,
         width: metrics.width
-    }, 
-
-    redButtonContainer :{
+    },
+    
+    bottomTextContainer:{
         alignItems: 'center',
-        top: metrics.height / 3.25,
+        top: metrics.height / 2.15,
     },
 
     emergencyPhonesContainer:{
@@ -24,14 +24,14 @@ const styles = StyleSheet.create({
         top: metrics.height / 6.5
     },
 
+    redButtonContainer :{
+        alignItems: 'center',
+        top: metrics.height / 3.25,
+    },
+
     topTextContainer:{
         alignItems: 'center',
         top: metrics.height / 9.5,
-    },
-
-    bottomTextContainer:{
-        alignItems: 'center',
-        top: metrics.height / 2.15,
     },
 
     primaryText:{

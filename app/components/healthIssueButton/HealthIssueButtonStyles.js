@@ -6,50 +6,50 @@ import metrics from '../../theme/Metrics';
 
 const styles = StyleSheet.create({
     container: {
-        marginBottom:10
+        marginBottom: 10
     },
 
     icon_container:{
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft:30,
+        marginLeft: 30,
     },
 
     button:{
-        width: metrics.width * 0.9,
+        alignItems: 'center',
+        borderRadius: 10,
+        backgroundColor: colors.white,
+        elevation: 10,
+        flexDirection: 'row',
         height: metrics.height * 0.1,
-        alignItems:'center',
         justifyContent:'space-between',
-        flexDirection:'row',
-        borderRadius:10,
-        backgroundColor:colors.white,
-        elevation:10    
+        width: metrics.width * 0.9
     },
 
     lottie:{
-        height:metrics.height * 0.08,
-        width:metrics.width * 0.15,
-        position:'absolute',
-        resizeMode:'cover'
+        height: metrics.height * 0.08,
+        position: 'absolute',
+        resizeMode: 'cover',
+        width: metrics.width * 0.15
     },
     
     text:{
-        fontSize: fonts.size.font15,
         color: colors.text,
-        fontWeight: fonts.weight.bold,
         fontFamily: fonts.type.roboto,
-        marginLeft:20
+        fontSize: fonts.size.font15,
+        fontWeight: fonts.weight.bold,
+        marginLeft: 20
     }, 
 
     icon:{
-        color:colors.white,
+        color: colors.white,
         fontSize: fonts.size.font25    
     },
     
     arrow:{
         color: colors.primary,
         fontSize: fonts.size.font38,
-        marginRight:20    
+        marginRight: 20    
     }
 });
 

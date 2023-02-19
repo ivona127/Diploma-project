@@ -1,7 +1,8 @@
-import { TouchableOpacity, Text } from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
+import {Text, TouchableOpacity} from 'react-native';
 
+import Feather from 'react-native-vector-icons/Feather';
 import makeCall from '../../utils/PhoneCall';
+
 import styles from './EmergencyPhoneButtonStyles';
 
 const EmergencyPhoneButton = ({phoneNumber}) => (

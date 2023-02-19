@@ -4,7 +4,6 @@ import colors from '../../theme/Colors';
 import fonts from '../../theme/Fonts';
 import metrics from '../../theme/Metrics';
 
-
 const styles = StyleSheet.create({
     emergencyPhoneButton:{
         alignItems: 'center',
@@ -16,17 +15,17 @@ const styles = StyleSheet.create({
         width: metrics.width / 2.5
     },
 
+    icon:{
+        color: colors.primary,
+        fontSize: fonts.size.font25,
+        fontWeight: fonts.weight.bold
+    },
+
     emergencyPhoneButtonText:{
         color: colors.text,
         fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font19,
         fontWeight: fonts.weight.bold,
-    },
-
-    icon:{
-        color: colors.primary,
-        fontSize: fonts.size.font25,
-        fontWeight: fonts.weight.bold
     }
 });
 

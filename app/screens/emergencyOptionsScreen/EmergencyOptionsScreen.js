@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import CurrentLocation from '../../utils/CurrentLocation';
