@@ -72,14 +72,7 @@ const PhoneNumberEntryScreen = ({route}) =>{
                 Alert.alert('Телефонните номера не могат да бъдат еднакви');
             } else {
                 try {
-                    const savedNumbers = [...inputNumber];
-
-                    inputNumber.forEach((value, index) => {
-                        savedNumbers[index] = value;
-                    });
-                
                     await AsyncStorage.setItem('@number', JSON.stringify(encryptedNumbers));
-                
                 } catch (e) {
                     console.log(e);
                 }
