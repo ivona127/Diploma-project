@@ -1,7 +1,7 @@
-import {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer} from '@react-navigation/native';
-import {useSelector} from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import AmountOfPhoneNumbersScreen from '../screens/amountOfPhoneNumbersScreen/AmountOfPhoneNumbersScreen';
 import BottomTabNavigator from './bottomTabNavigator/BottomTabNavigator';
@@ -13,20 +13,43 @@ import PhoneNumberEntryScreen from '../screens/phoneNumberEntryScreen/PhoneNumbe
 
 const {Navigator, Screen} = createStackNavigator();
 
-const StackNavigator = () => {
-    const hasCompletedInitialScreens = useSelector(state => state.hasCompletedInitialScreens)
+const StackNavigator = (props) => {
+
+    const [initialRoute, setInitialRoute] = useState('AmountOfPhoneNumbersScreen');
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const checkIfUserVisitedBefore = async () => {
+            const hasVisitedBefore = await AsyncStorage.getItem('hasVisitedBefore');
+
+            if (hasVisitedBefore) {
+                setInitialRoute( 'AmountOfPhoneNumbersScreen');
+            } else {
+                await AsyncStorage.setItem('hasVisitedBefore', 'true');
+            }
+            setIsLoading(false);
+        };
+
+        checkIfUserVisitedBefore();
+
+    }, []);
+
+    if (isLoading) {
+        return null; // render a loading indicator instead of the Navigator
+    }
 
     return(
         <NavigationContainer>
             <Navigator 
-                // initialRouteName={hasCompletedInitialScreens ? 'BottomTabNavigator' : 'AmountOfPhoneNumbersScreen'}  
-                initialRouteName='AmountOfPhoneNumbersScreen' 
+                initialRouteName={initialRoute}
                 screenOptions={{headerShown: false}}
             >
                 <Screen name='AmountOfPhoneNumbersScreen' component={AmountOfPhoneNumbersScreen}/>
                 <Screen name='PhoneNumberEntryScreen' component={PhoneNumberEntryScreen}/>
                 <Screen name='LocationPermissionScreen' component={LocationPermissionScreen}/> 
-                <Screen name='BottomTabNavigator' component={BottomTabNavigator}/>
+                <Screen name='BottomTabNavigator'>
+  {({ route }) => <BottomTabNavigator secretKey={route.params.secretKey} />}
+</Screen>
                 <Screen name='EmergencyOptionsScreen' component={EmergencyOptionsScreen}/>
                 <Screen name='HospitalListScreen' component={HospitalListScreen}/>
                 <Screen name='InstructionsScreen' component={InstructionsScreen}/>

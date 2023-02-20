@@ -8,6 +8,7 @@ import PhoneNumber from 'google-libphonenumber'
 
 import BackButton from '../../components/backButton/BackButton';
 import styles from './PhoneNumberEntryScreenStyle';
+import CryptoJS from 'react-native-crypto-js';
 
 const PhoneNumberEntryScreen = ({route}) =>{
     const navigation = useNavigation();
@@ -15,15 +16,21 @@ const PhoneNumberEntryScreen = ({route}) =>{
     const pickerNumber = route.params.pickerNumber;
     const [inputNumber, setInputNumber] = useState(Array(pickerNumber).fill(''));
 
+    const secretKey = CryptoJS.lib.WordArray.random(16).toString()
     const phoneUtil = PhoneNumber.PhoneNumberUtil.getInstance();
 
     const handleButtonPress = (screenNum) => {
         if(screenNum){
-            navigation.navigate('LocationPermissionScreen');        
+            navigation.navigate('LocationPermissionScreen', {secretKey: secretKey});        
         } else {
             navigation.navigate('AmountOfPhoneNumbersScreen');
         }
     }
+
+    const encryptedNumbers = inputNumber.map((number) => {
+        const encryptedNumbers = CryptoJS.AES.encrypt(number, secretKey).toString();
+        return encryptedNumbers;
+    });
 
     const handlePhoneInputChange = (index, value) => {
         const updatedNumbers = [...inputNumber];
@@ -60,10 +67,10 @@ const PhoneNumberEntryScreen = ({route}) =>{
                     inputNumber.forEach((value, index) => {
                         savedNumbers[index] = value;
                     });
-
-                    setInputNumber(savedNumbers);
-                    
-                    await AsyncStorage.setItem('@number', JSON.stringify(inputNumber));
+                
+                    await AsyncStorage.setItem('@number', JSON.stringify(encryptedNumbers));
+                
+                
                 } catch (e) {
                     console.log(e);
                 }

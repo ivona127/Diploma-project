@@ -1,16 +1,23 @@
 import {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import CryptoJS from 'react-native-crypto-js';
 
-const GetDefaultNumbers = () => {
+const GetDefaultNumbers = (props) => {
     const [phoneNumbers, setPhoneNumbers] = useState(Array(3).fill(''));
 
     useEffect( () => {
         const fetchData = async () => {
             try {
-                const rawData = await AsyncStorage.getItem('@number');
+                
+                const encryptedNumbers = await AsyncStorage.getItem('@number');
+
+                if (encryptedNumbers !== null) {
+                    const decryptedNumbers = JSON.parse(encryptedNumbers).map((encryptedNumber) => {
+                    const decryptedNumber = CryptoJS.AES.decrypt(encryptedNumber, props.secretKey).toString(CryptoJS.enc.Utf8);
+                    return decryptedNumber;
+                });
     
-                if (rawData != null) {
-                    const parts = rawData.match(/(\+[\d]+)/g).filter(Boolean);
+                    const parts = decryptedNumbers.join('').match(/(\+[\d]+)/g).filter(Boolean);
                     const result = parts.map(part => part.trim());
 
                     const savedNumbers = [...phoneNumbers];

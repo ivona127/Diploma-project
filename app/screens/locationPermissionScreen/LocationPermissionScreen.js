@@ -6,7 +6,7 @@ import * as Location from 'expo-location';
 
 import styles from './LocationPermissionScreenStyles';
 
-const LocationPermissionScreen = () => {
+const LocationPermissionScreen = ({route}) => {
     const navigation = useNavigation();
 
     const [canContinue, setCanContinue] = useState(false);
@@ -14,7 +14,7 @@ const LocationPermissionScreen = () => {
 
     const handleButtonPress = () => {
         if(canContinue){
-            navigation.navigate('BottomTabNavigator');
+            navigation.navigate('BottomTabNavigator', {secretKey: route.params.secretKey});
         } else{
             Alert.alert('Не може да продължите без да разрешите настройката');
         }

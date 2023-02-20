@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import styles from './SOSButtonStyles';
 
-const SOSButton = () => {
+const SOSButton = ({secretKey}) => {
     const navigation = useNavigation();
 
     const handleButtonPress = () => {

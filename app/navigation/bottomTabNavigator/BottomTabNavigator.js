@@ -11,10 +11,10 @@ import styles from './BottomTabNavigatorStyles'
 
 const {Navigator, Screen} = createBottomTabNavigator();
 
-const BottomTabNavigator = () => {
+const BottomTabNavigator = (props) => {
     let Home = 'Начало';
     let Settings = 'Настройки';
-
+    
     const TabBarIcon = ({name, focused}) => (
         <View style={styles.tabBarIconContainer}>
             {name == Home ? (
@@ -60,10 +60,13 @@ const BottomTabNavigator = () => {
                 <Screen
                     name={Settings}
                     component={SettingsScreen}
-                    options={{
+                    initialParams={{ secretKey: props.secretKey }}
+                    options={({route}) => ({
                         tabBarIcon: ({focused}) => <TabBarIcon name={Settings} focused={focused} />,
-                        tabBarLabel: ({focused}) => <TabBarLabel name={Settings} focused={focused} />
-                    }}
+                        tabBarLabel: ({focused}) => <TabBarLabel name={Settings} focused={focused} />,
+                        // pass the secretKey as a screen prop
+                        screenProps: { route  },
+                      })}
                 />
             </Navigator>
         </View>

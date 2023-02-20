@@ -1,4 +1,4 @@
-import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Image, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import {firstAid} from '../../data/FirstAid';

@@ -6,6 +6,7 @@ import SOSButton from "../../components/SOSButton/SOSButton";
 import styles from './HomeScreenStyles';
 
 const HomeScreen = () => {
+
     return(
         <View style={styles.container}>
             <View style={styles.topTextContainer}>

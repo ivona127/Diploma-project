@@ -3,8 +3,10 @@ import GetDefaultNumbers from '../../utils/GetDefaultNumbers';
 
 import styles from './SettingsScreenStyles';
 
-const SettingsScreen = () =>{
-    const phoneNumbers = new GetDefaultNumbers();
+const SettingsScreen = (props) =>{
+    const {secretKey} = props.route.params;
+
+    const phoneNumbers = new GetDefaultNumbers({secretKey});
    
     return (
         <View style={styles.container}>
