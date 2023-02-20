@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
     },
 
     instructionsContainer:{
-        alignItems:'center',
+        alignItems: 'center',
         height: metrics.height / 2.1,
         top: metrics.height / 6
     },
 
     secondaryTextContainer:{
         marginBottom: 10,
-        padding:10
+        padding: 10
     },
 
     titleContainer:{

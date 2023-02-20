@@ -50,8 +50,7 @@ const HospitalDataField = ({item}) => {
                         />                    
 
                         <Feather name="navigation" style={styles.icon}/>
-                    </View>
-                    
+                    </View>    
                 </TouchableOpacity>
             </View>
         </View>

@@ -1,5 +1,6 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Alert, Text, TouchableOpacity, View} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -7,21 +8,30 @@ import IntlPhoneInput from 'react-native-intl-phone-input';
 import PhoneNumber from 'google-libphonenumber'
 
 import BackButton from '../../components/backButton/BackButton';
-import styles from './PhoneNumberEntryScreenStyle';
 import CryptoJS from 'react-native-crypto-js';
+
+import styles from './PhoneNumberEntryScreenStyle';
 
 const PhoneNumberEntryScreen = ({route}) =>{
     const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     const pickerNumber = route.params.pickerNumber;
     const [inputNumber, setInputNumber] = useState(Array(pickerNumber).fill(''));
+    const [secretKey, setSecretKey] = useState('');
 
-    const secretKey = CryptoJS.lib.WordArray.random(16).toString()
     const phoneUtil = PhoneNumber.PhoneNumberUtil.getInstance();
+      
+    useEffect(() => {
+        const newSecretKey = CryptoJS.lib.WordArray.random(16).toString();
+        setSecretKey(newSecretKey);
+        dispatch({ type: 'SET_SECRET_KEY', secretKey: newSecretKey });
+    }, [dispatch]);
+
 
     const handleButtonPress = (screenNum) => {
         if(screenNum){
-            navigation.navigate('LocationPermissionScreen', {secretKey: secretKey});        
+            navigation.navigate('LocationPermissionScreen');        
         } else {
             navigation.navigate('AmountOfPhoneNumbersScreen');
         }
@@ -70,7 +80,6 @@ const PhoneNumberEntryScreen = ({route}) =>{
                 
                     await AsyncStorage.setItem('@number', JSON.stringify(encryptedNumbers));
                 
-                
                 } catch (e) {
                     console.log(e);
                 }
@@ -105,7 +114,7 @@ const PhoneNumberEntryScreen = ({route}) =>{
                             <IntlPhoneInput
                                 defaultValue = {number}
                                 defaultCountry="BG"
-                                flagStyle={{ display: 'none' }}
+                                flagStyle={{display: 'none'}}
                                 disableCountryChange={true}
                                 placeholder="Въведете номер тук"
                                 onChangeText ={value => handlePhoneInputChange(index, value)}

@@ -21,13 +21,13 @@ const styles = StyleSheet.create({
     },
 
     flatListContainer:{
-        alignItems:'center',
+        alignItems: 'center',
         height: metrics.height / 1.9,
         top: metrics.height / 9,
     },
 
     textContainer:{
-        alignItems:'center',
+        alignItems: 'center',
         top: metrics.height / 12
     },
 
@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderWidth: 5,
         color: colors.primary, 
-        elevation:10,
+        elevation: 10,
         height: metrics.height / 10,
         justifyContent: 'center',
-        marginBottom:15,
+        marginBottom: 15,
         width: metrics.width / 1.2
     },
 

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
 
     buttonsContainer:{
-        alignItems:'center',    
+        alignItems: 'center',    
         top: metrics.height / 11,
     },
 
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
 
     textContainer:{
-        alignItems:'center',
+        alignItems: 'center',
         top: metrics.height / 16
     },
 

@@ -10,7 +10,7 @@ import Stopwatch from '../../utils/Stopwatch';
 
 import styles from './EmergencyOptionsScreenStyles';
 
-const EmergencyOptionsScreen = () => {
+const EmergencyOptionsScreen = ({route}) => {
     const navigation = useNavigation();
 
     const [isButtonClicked, setIsButtonClicked] = useState(false);

@@ -14,17 +14,17 @@ const styles = StyleSheet.create({
 
     mobilePhoneContainer:{
         alignItems: 'center',
-        backgroundColor:colors.white,
-        borderRadius:10,
-        elevation:10,
+        backgroundColor: colors.white,
+        borderRadius: 10,
+        elevation: 10,
         height: metrics.height / 8,
-        justifyContent:'center',
-        marginBottom:20,        
+        justifyContent: 'center',
+        marginBottom: 20,        
         width: metrics.width / 1.1
     },
 
     mobilePhonesList:{
-        alignItems:'center',
+        alignItems: 'center',
         top: metrics.height / 6
     },
 
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
     mobilePhoneText:{
         color: colors.text,
-        fontFamily:fonts.type.roboto,
+        fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font15,
         fontWeight: fonts.weight.bold,
     },
@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
 
     secondaryText:{
         color: colors.text,
-        fontFamily:fonts.type.roboto,
+        fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font14,
         fontWeight: fonts.weight.normal,
-        marginTop:5,
+        marginTop: 5,
         width: metrics.width / 1.1
     }
 });

@@ -46,7 +46,7 @@ const HealthIssueButton = (props) => {
                 onPress={() => handleButtonPress()}
             >
                 
-                <View style={styles.icon_container}>
+                <View style={styles.iconContainer}>
                     <LottieView 
                         style={styles.lottie}
                         source={require('../../../assets/lottie/circle-red-button.json')}

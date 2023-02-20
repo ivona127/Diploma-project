@@ -36,22 +36,22 @@ const styles = StyleSheet.create({
 
     button:{
         alignItems: 'center',
-        backgroundColor:colors.primary,
-        borderRadius:20,
+        backgroundColor: colors.primary,
+        borderRadius: 20,
         elevation: 10,
         height: metrics.height / 12,
-        justifyContent:'center',
+        justifyContent: 'center',
         width: metrics.width / 1.5
     },
 
     card:{
         alignItems: 'center',
         backgroundColor: colors.white,
-        borderRadius:20,
-        elevation:10,
+        borderRadius: 20,
+        elevation: 10,
         height: metrics.height / 3,
         justifyContent: 'center',
-        padding:20,    
+        padding: 20,    
         width: metrics.width / 1.2
     },
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -13,7 +13,7 @@ import PhoneNumberEntryScreen from '../screens/phoneNumberEntryScreen/PhoneNumbe
 
 const {Navigator, Screen} = createStackNavigator();
 
-const StackNavigator = (props) => {
+const StackNavigator = () => {
 
     const [initialRoute, setInitialRoute] = useState('AmountOfPhoneNumbersScreen');
     const [isLoading, setIsLoading] = useState(true);
@@ -23,15 +23,15 @@ const StackNavigator = (props) => {
             const hasVisitedBefore = await AsyncStorage.getItem('hasVisitedBefore');
 
             if (hasVisitedBefore) {
-                setInitialRoute( 'AmountOfPhoneNumbersScreen');
+                setInitialRoute('BottomTabNavigator');
             } else {
                 await AsyncStorage.setItem('hasVisitedBefore', 'true');
             }
+
             setIsLoading(false);
         };
 
         checkIfUserVisitedBefore();
-
     }, []);
 
     if (isLoading) {
@@ -47,11 +47,9 @@ const StackNavigator = (props) => {
                 <Screen name='AmountOfPhoneNumbersScreen' component={AmountOfPhoneNumbersScreen}/>
                 <Screen name='PhoneNumberEntryScreen' component={PhoneNumberEntryScreen}/>
                 <Screen name='LocationPermissionScreen' component={LocationPermissionScreen}/> 
-                <Screen name='BottomTabNavigator'>
-  {({ route }) => <BottomTabNavigator secretKey={route.params.secretKey} />}
-</Screen>
-                <Screen name='EmergencyOptionsScreen' component={EmergencyOptionsScreen}/>
-                <Screen name='HospitalListScreen' component={HospitalListScreen}/>
+                <Screen name='BottomTabNavigator' component={BottomTabNavigator}/>
+                <Screen name='EmergencyOptionsScreen' component={EmergencyOptionsScreen}/> 
+                <Screen name='HospitalListScreen' component={HospitalListScreen}/> 
                 <Screen name='InstructionsScreen' component={InstructionsScreen}/>
             </Navigator>
         </NavigationContainer>

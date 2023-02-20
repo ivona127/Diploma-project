@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
 
-    icon_container:{
+    iconContainer:{
         alignItems: 'center',
         justifyContent: 'center',
         marginLeft: 30,

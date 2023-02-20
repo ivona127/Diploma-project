@@ -11,7 +11,7 @@ const InstructionsScreen = ({route}) =>{
     const navigation = useNavigation();
 
     const caseNum =  route.params.caseNum;
-    const instructions = firstAid.filter(item => item.id === caseNum);
+    const instructions = firstAid.filter(item => item.case === caseNum);
 
 
     const handleButtonPress = () => {
@@ -29,13 +29,16 @@ const InstructionsScreen = ({route}) =>{
             </View>
 
             <View style={styles.imageContainer}>
-                <Image style={styles.image} source={instructions[0].image} />
+                <Image 
+                    style={styles.image} 
+                    source={instructions[0].image} 
+                />
             </View>
 
             <View style={styles.instructionsContainer}>
                <FlatList
                     data={instructions}
-                    keyExtractor={item => item.description.length + item.steps[0].text.length}
+                    keyExtractor={item => item.id}
                     renderItem={({item}) => { 
                         return <>
                             <View style={styles.secondaryTextContainer}>
