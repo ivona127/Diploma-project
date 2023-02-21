@@ -16,7 +16,7 @@ const LocationPermissionScreen = () => {
         if(canContinue){
             navigation.navigate('BottomTabNavigator');
         } else{
-            Alert.alert('Не може да продължите без да разрешите настройката');
+            Alert.alert('Не може да продължите, без да разрешите настройката');
         }
     }
 

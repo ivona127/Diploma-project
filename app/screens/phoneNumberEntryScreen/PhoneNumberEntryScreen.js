@@ -55,7 +55,7 @@ const PhoneNumberEntryScreen = ({route}) =>{
         for(let i = 0; i < pickerNumber; i++) {
             if (inputNumber[i].trim() === '') {
                 isValid = false;
-                Alert.alert('Няма въведена информация за "Телефон номер "' + (i + 1));
+                Alert.alert('Няма въведена информация за "Телефонен номер "' + (i + 1));
                 break;
             }
 

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         color: colors.text,
         fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font19,
-        fontWeight: fonts.weight.bold 
+        fontWeight: fonts.weight.bold
     },
 
     secondaryText:{
