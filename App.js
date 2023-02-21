@@ -1,6 +1,6 @@
-import {Provider} from "react-redux";
+import {Provider} from 'react-redux';
 
-import StackNavigator from "./app/navigation/StackNavigator";
+import StackNavigator from './app/navigation/StackNavigator';
 import store from './app/redux/Store'
 
 export default function App() {
