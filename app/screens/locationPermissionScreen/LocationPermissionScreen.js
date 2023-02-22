@@ -26,7 +26,7 @@ const LocationPermissionScreen = () => {
         if (status === 'granted') {
             setCanContinue(true);
         } else {
-            Alert.alert('Не разрешихте използването на местополежието Ви')
+            Alert.alert('Не разрешихте използването на местоположението Ви')
         }
     };
 
