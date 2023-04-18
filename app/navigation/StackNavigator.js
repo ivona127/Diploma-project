@@ -23,7 +23,7 @@ const StackNavigator = () => {
             const hasVisitedBefore = await AsyncStorage.getItem('hasVisitedBefore');
 
             if (hasVisitedBefore) {
-                setInitialRoute('BottomTabNavigator');
+                setInitialRoute('AmountOfPhoneNumbersScreen');
             } else {
                 await AsyncStorage.setItem('hasVisitedBefore', 'true');
             }
