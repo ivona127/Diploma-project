@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {useState, useEffect} from 'react';
+import {Alert, ScrollView, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import CurrentLocation from '../../utils/CurrentLocation';
@@ -10,18 +10,29 @@ import Stopwatch from '../../utils/Stopwatch';
 
 import styles from './EmergencyOptionsScreenStyles';
 
-const EmergencyOptionsScreen = ({route}) => {
+const EmergencyOptionsScreen = () => {
     const navigation = useNavigation();
 
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     const {latitude, longitude} = CurrentLocation();
+    const [loading, setLoading] = useState(false);
     const stopwatch = Stopwatch();
     const time = CurrentTime();
 
+    useEffect(() => {
+        if (latitude !== null && longitude !== null) {
+            setLoading(true);
+        }
+    }, [latitude, longitude]);
+
     const handleButtonPress = (caseNum) => {
         setIsButtonClicked(true);
-        navigation.navigate('HospitalListScreen', {caseNum: caseNum});
+        if (loading){
+            navigation.navigate('HospitalListScreen', {caseNum: caseNum, location: {latitude, longitude}});
+        } else {
+            Alert.alert(`Установяване на местоположението`, `Опитайте отново!`);
+        }
     };
 
     return(

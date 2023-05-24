@@ -10,28 +10,26 @@ const styles = StyleSheet.create({
         flex: 1,
         height: metrics.height,
         justifyContent: 'center',
-        width: metrics.width
+        width: metrics.width,
     },
 
     buttonContainer:{
         alignItems: 'center',
-        marginTop: 50
+        marginTop: 30
     },
 
     cardContainer:{
         alignItems: 'center',
-        marginTop:20
+        marginTop:15
     },
 
     inputContainer:{
-        alignItems: 'center',
         elevation: 2,
-        paddingTop: 5    
     }, 
 
     textContainer:{
         alignItems: 'center',
-        marginBottom: 20
+        marginTop:30
     },
 
     button:{
@@ -49,9 +47,9 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         elevation: 10,
         justifyContent: 'center',
-        height: metrics.height / 8,
+        height: metrics.height / 6.5,
         width: metrics.width / 1.2,
-        padding: 20    
+        padding: 20,
     },
 
     iconButton:{

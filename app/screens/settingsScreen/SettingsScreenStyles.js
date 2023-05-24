@@ -17,10 +17,12 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         borderRadius: 10,
         elevation: 10,
+        flexDirection: 'row',
         height: metrics.height / 8,
-        justifyContent: 'center',
-        marginBottom: 20,        
-        width: metrics.width / 1.1
+        justifyContent: 'space-between',
+        marginBottom: 20,
+        paddingHorizontal: 15, 
+        width: metrics.width / 1.1,
     },
 
     mobilePhonesList:{
@@ -33,11 +35,29 @@ const styles = StyleSheet.create({
         top: metrics.height / 9,    
     },
 
+    buttonText:{
+        color: colors.white,
+        fontFamily: fonts.type.roboto,
+        fontSize: fonts.size.font15,
+        fontWeight: fonts.weight.bold,
+    },
+
     mobilePhoneText:{
         color: colors.text,
         fontFamily: fonts.type.roboto,
         fontSize: fonts.size.font15,
-        fontWeight: fonts.weight.bold,
+        fontWeight: fonts.weight.normal,
+    },
+
+    editButton:{
+        alignItems: 'center',
+        backgroundColor: colors.primary,
+        borderRadius: 20,
+        elevation: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: metrics.width / 3.5,
+        padding: 5
     },
 
     text:{
@@ -53,7 +73,14 @@ const styles = StyleSheet.create({
         fontSize: fonts.size.font14,
         fontWeight: fonts.weight.normal,
         marginTop: 5,
-        width: metrics.width / 1.1
+        width: metrics.width / 1.2
+    },
+
+    labelText:{
+        color: colors.text,
+        fontFamily: fonts.type.roboto,
+        fontSize: fonts.size.font15,
+        fontWeight: fonts.weight.bold,
     }
 });
 

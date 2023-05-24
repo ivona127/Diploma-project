@@ -9,15 +9,16 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.17.11",
-    "@react-native-picker/picker": "^2.4.8",
+    "@react-native-async-storage/async-storage": "~1.17.3",
+    "@react-native-picker/picker": "2.4.8",
     "@react-navigation/bottom-tabs": "^6.5.5",
     "@react-navigation/stack": "^6.3.14",
     "@reduxjs/toolkit": "^1.9.2",
     "expo": "^47.0.13",
-    "expo-location": "^15.0.1",
-    "expo-sms": "^11.0.0",
+    "expo-location": "~15.0.1",
+    "expo-sms": "~11.0.0",
     "expo-status-bar": "~1.4.2",
+    "geolib": "^3.3.3",
     "google-libphonenumber": "^3.2.32",
     "lottie-react-native": "5.1.4",
     "react": "18.1.0",
@@ -31,7 +32,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
-    "overrides": {
+  "overrides": {
     "json5": "1.0.2",
     "xml2js": "0.5.0"
   },

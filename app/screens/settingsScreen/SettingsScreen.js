@@ -1,10 +1,27 @@
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import GetDefaultNumbers from '../../utils/GetDefaultNumbers';
 
 import styles from './SettingsScreenStyles';
 
 const SettingsScreen = () =>{
-    const phoneNumbers = new GetDefaultNumbers();
+    const navigation = useNavigation();
+
+    const {phoneNumbers, phoneHolders} = new GetDefaultNumbers();
+
+    const editPhoneContact = (index) => {
+        while (phoneNumbers.length < 3) {
+            phoneNumbers.push('');
+            phoneHolders.push('');
+        }
+
+        navigation.navigate('PhoneNumberEntryScreen', {
+            pickerNumber: 1,
+            phoneNumbers: phoneNumbers,
+            phoneHolders: phoneHolders,
+            selectedContactIndex: index
+        });
+    };
    
     return (
         <View style={styles.container}>
@@ -22,9 +39,25 @@ const SettingsScreen = () =>{
             <View style={styles.mobilePhonesList}>
                 {phoneNumbers.map((part, index) => (
                     <View key={index} style={styles.mobilePhoneContainer}>
-                        <Text style={styles.mobilePhoneText}>
-                            {part}
-                        </Text>
+                        <View>
+                            <Text style={styles.mobilePhoneText}>
+                                <Text style={styles.labelText}>Име: </Text>
+                                {phoneHolders[index]}
+                            </Text>
+
+                            <Text style={styles.mobilePhoneText}>
+                                <Text style={styles.labelText}>Номер: </Text>
+                                {part}
+                            </Text>
+                        </View>
+
+                        <TouchableOpacity 
+                            onPress={() => editPhoneContact(index)}
+                            style={styles.editButton}
+                        >
+                            <Text style={styles.buttonText}>Редактирай</Text>
+                        </TouchableOpacity>
+                       
                     </View>
                 ))}
             </View>

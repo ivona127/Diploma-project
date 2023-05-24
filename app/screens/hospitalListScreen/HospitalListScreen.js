@@ -4,14 +4,25 @@ import {useNavigation} from '@react-navigation/native';
 import {hospitals} from '../../data/Hospitals'
 import BackButton from '../../components/backButton/BackButton';
 import HospitalDataField from '../../components/hospitalDataField/HospitalDataField';
+import * as geolib from 'geolib';
 
 import styles from './HospitalListScreenStyles';
 
 const HospitalListScreen = ({route}) =>{
     const navigation = useNavigation();
-
-    const caseNum = route.params.caseNum;
+    const {location, caseNum} = route.params;
     const filteredHospitals = hospitals.filter(hospital => hospital.cases.includes(caseNum));
+
+    // Calculate the distances between the user's location and hospitals
+    filteredHospitals.forEach((hospital) => {
+        hospital.distance = geolib.getDistance(location, {
+            latitude: hospital.latitude,
+            longitude: hospital.longitude,
+        });
+    });
+
+   // Sort the filteredHospitals based on distance
+    filteredHospitals.sort((a, b) => a.distance - b.distance);
 
     const handleButtonPress = (screenNum) => {      
         if(screenNum){

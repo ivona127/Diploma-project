@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import { Alert, BackHandler} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,7 +15,6 @@ import PhoneNumberEntryScreen from '../screens/phoneNumberEntryScreen/PhoneNumbe
 const {Navigator, Screen} = createStackNavigator();
 
 const StackNavigator = () => {
-
     const [initialRoute, setInitialRoute] = useState('AmountOfPhoneNumbersScreen');
     const [isLoading, setIsLoading] = useState(true);
 
@@ -23,7 +23,7 @@ const StackNavigator = () => {
             const hasVisitedBefore = await AsyncStorage.getItem('hasVisitedBefore');
 
             if (hasVisitedBefore) {
-                setInitialRoute('AmountOfPhoneNumbersScreen');
+                setInitialRoute('BottomTabNavigator');
             } else {
                 await AsyncStorage.setItem('hasVisitedBefore', 'true');
             }
