@@ -15,7 +15,7 @@ const InstructionsScreen = ({route}) =>{
 
 
     const handleButtonPress = () => {
-        navigation.navigate('HospitalListScreen', {caseNum: caseNum});
+        navigation.navigate('BottomTabNavigator');
     }
 
     return (
