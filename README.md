@@ -21,4 +21,4 @@
   - git clone https://github.com/ivona127/Diploma-project 
   - cd Diploma-project 
   - npm install 
-  - npm run android* 
+  - npm run android
