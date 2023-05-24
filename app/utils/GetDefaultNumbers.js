@@ -21,8 +21,8 @@ const GetDefaultNumbers = () => {
                         return decryptedNumber;
                     });
 
-                    const parts = decryptedNumbers.join('').match(/(\+[\d]+)/g).filter(Boolean);
-                    const result = parts.map(part => part.trim());
+                    const parts = decryptedNumbers ? decryptedNumbers.join('').match(/(\+[\d]+)/g).filter(Boolean) : [];
+                    const result = parts ? parts.map(part => part.trim()) : [];
 
                     const savedNumbers = [...phoneNumbers];
                     const savedHolders = [...phoneHolders];
@@ -44,9 +44,9 @@ const GetDefaultNumbers = () => {
         };
 
         fetchData();
-    }, []);
+    }, [secretKey, phoneNumbers, phoneHolders]);
 
-    return {phoneNumbers, phoneHolders};
+    return { phoneNumbers, phoneHolders };
 };
 
 export default GetDefaultNumbers;

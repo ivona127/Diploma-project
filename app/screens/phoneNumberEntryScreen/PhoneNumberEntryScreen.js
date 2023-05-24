@@ -89,7 +89,11 @@ const PhoneNumberEntryScreen = ({ route }) => {
               inputNumber[i].length < 6
             ) {
                 isValid = false;
-                errorMessages.push(`Няма въведена информация за "Телефонен номер "${i + 1}"`);
+                if (selectedContactIndex !== undefined){
+                    errorMessages.push(`Няма въведена информация за Телефонен номер "${selectedContactIndex + 1}"`);
+                } else {
+                    errorMessages.push(`Няма въведена информация за Телефонен номер "${i + 1}"`);
+                }
                 break;
               }
 
