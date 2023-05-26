@@ -44,7 +44,7 @@ const GetDefaultNumbers = () => {
         };
 
         fetchData();
-    }, [secretKey, phoneNumbers, phoneHolders]);
+    }, []);
 
     return { phoneNumbers, phoneHolders };
 };
