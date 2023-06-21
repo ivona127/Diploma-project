@@ -12,8 +12,11 @@ const GetDefaultNumbers = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                console.log("secretKey"+ secretKey);
                 const encryptedNumbers = await AsyncStorage.getItem('@number');
+                console.log("encryptedNumbers"+ encryptedNumbers);
                 const phoneNumberHolders = await AsyncStorage.getItem('@name');
+                console.log("phoneNumberHolders"+ phoneNumberHolders);
 
                 if (encryptedNumbers !== null && phoneNumberHolders !== null) {
                     const decryptedNumbers = JSON.parse(encryptedNumbers).map((encryptedNumber) => {
